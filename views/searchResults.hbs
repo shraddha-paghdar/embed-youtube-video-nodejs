@@ -1,0 +1,14 @@
+{{#if message}}
+<div class="row">
+	{{#each message}}
+	<div class="col-md-4 card mb-2 ml-1">
+		<iframe class="card-img-top" src="https://www.youtube.com/embed/{{id.videoId}}" frameborder="0"
+			allowfullscreen></iframe>
+		<div class="card-body">
+			<h5 class="card-title">{{snippet.title}}</h5>
+			<p class="card-text">{{snippet.description}}</p>
+		</div>
+	</div>
+	{{/each}}
+</div>
+{{/if}}
