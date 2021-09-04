@@ -23,7 +23,7 @@ router.get('/', function (req, res, next) {
 const fetchVideos = async (queryObject) => {
   const options = {
     method: 'GET',
-    url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&channelId=${queryObject.channelId}&key=AIzaSyAKPjJWtsj3JbFuagFOMouHhsJ78kQ-uCc`,
+    url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&channelId=${queryObject.channelId}&key=API_KEY`,
   };
   const result = await axios(options)
   return result.data
