@@ -25,26 +25,21 @@ const fetchVideos = async (queryObject) => {
     method: 'GET',
     url: `https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=100&channelId=${queryObject.channelId}&key=AIzaSyAKPjJWtsj3JbFuagFOMouHhsJ78kQ-uCc`,
   };
-  const language = await axios(options)
-  return language.data
+  const result = await axios(options)
+  return result.data
 }
 
 
 /* API to fetch the translations */
 router.post('/fetch_videos', async (req, res) => {
   try {
-    const translatedResult = await fetchVideos(req.body)
-
+    const fetchedVideos = await fetchVideos(req.body)
     const html = searchTemp({
-      message: translatedResult.items
+      result: fetchedVideos.items
     })
-
-    console.log(html)
-
     res.send({
       html,
     })
-
   } catch (err) {
     console.log(err);
   }
